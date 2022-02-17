@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -11,7 +12,6 @@ public class PlayerMovement : MonoBehaviour
     public bool feetContact;
     float x_input;
     float y_input;
-
     #endregion
 
     #region Attack_variables
@@ -24,7 +24,9 @@ public class PlayerMovement : MonoBehaviour
     #endregion
 
     #region Health_variables
-    public int health;
+    public float maxHealth;
+    float currHealth;
+    public Slider HPSlider;
     #endregion 
 
     #region Physics_components
@@ -99,9 +101,34 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    private void Damaged(int damage)
-    {
-        health -= damage;
+    #endregion
+
+    #region Health_functions
+
+    // Take damage based on value param passed in by caller
+    public void TakeDamage(float value) {
+
+        // Decrement health
+        currHealth -= value;
+
+        // change UI
+        HPSlider.value = currHealth / maxHealth;
+
+        // check if dead
+        if (currHealth <= 0) {
+            // Die
+            Die();
+        }
+    }
+
+    // destroys player object and triggers end scene stuff
+    private void Die() {
+
+        // Destroy this object
+        Destroy(this.gameObject);
+        // trigger anything to end the game, find GameManager and lose game
+        // GameObject gm = GameObject.FindWithTag("GameController");
+        // gm.GetComponent<GameManager>().LoseGame();
     }
 
     #endregion

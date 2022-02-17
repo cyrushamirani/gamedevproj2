@@ -12,7 +12,8 @@ public class WaterBall : MonoBehaviour
         {
             // collision.gameObject.damage();
         }
-        if (!collision.gameObject.CompareTag("Player"))
+        if (!collision.gameObject.CompareTag("Player")
+            && !collision.gameObject.CompareTag("Background"))
         {
             Destroy(this.gameObject);
         }
