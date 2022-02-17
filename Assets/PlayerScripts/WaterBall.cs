@@ -15,11 +15,14 @@ public class WaterBall : MonoBehaviour
             enemy.TakeDamage(GetComponentInParent<PlayerMovement>().damage);
             Destroy(this.gameObject);
         }
-
-        if (collision.gameObject.tag == "Fireball")
+        else if (collision.gameObject.tag == "Fireball")
         {
             Destroy(this.gameObject);
             Destroy(collision.gameObject);
+        }
+        else if (collision.gameObject.tag == "Platform")
+        {
+            Destroy(this.gameObject);
         }
     }
 }
