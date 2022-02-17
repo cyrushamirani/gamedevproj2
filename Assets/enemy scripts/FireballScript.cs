@@ -10,7 +10,7 @@ public class FireballScript : MonoBehaviour
         if (collision.transform.CompareTag("Player"))
         {
             Debug.Log("found player");
-            collision.transform.GetComponent<PlayerMovement>().TakeDamage(1);
+            collision.transform.GetComponentInParent<PlayerMovement>().TakeDamage(1);
             Destroy(gameObject);
         }
     }
