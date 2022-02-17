@@ -88,6 +88,7 @@ public class PlayerMovement : MonoBehaviour
     {
 
         GameObject projectile = Instantiate(waterBall, transform.position, transform.rotation);
+        projectile.transform.parent = this.gameObject.transform;
         Rigidbody2D projectileRB = projectile.GetComponent<Rigidbody2D>();
         Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mouse_x = mouse.x;
