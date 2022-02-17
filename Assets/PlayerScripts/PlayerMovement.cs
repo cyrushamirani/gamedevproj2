@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         PlayerRB = gameObject.GetComponent<Rigidbody2D>();
+        currHealth = maxHealth;
         
     }
 
@@ -108,6 +109,7 @@ public class PlayerMovement : MonoBehaviour
     // Take damage based on value param passed in by caller
     public void TakeDamage(float value) {
 
+        Debug.Log("hi");
         // Decrement health
         currHealth -= value;
 

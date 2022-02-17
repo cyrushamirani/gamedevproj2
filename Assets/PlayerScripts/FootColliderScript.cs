@@ -7,7 +7,6 @@ public class FootColliderScript : MonoBehaviour
     //When we enter collison with another gameObject, check if the object is a floor
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("collided");
         if (isPlatform(collision.gameObject))
         {
             GetComponentInParent<PlayerMovement>().feetContact = true;
