@@ -30,14 +30,12 @@ public class EnemyScript : MonoBehaviour
 
     #region health_vars
     public float max_health;
-    float curr_health;
     #endregion
 
     #region Unity_funcs
     private void Awake()
     {
         EnemyRB = GetComponent<Rigidbody2D>();
-        curr_health = max_health;
         time_until_next_attack = attack_cooldown;
         move_idle_time = idle_switch_time;
     }
@@ -99,6 +97,15 @@ public class EnemyScript : MonoBehaviour
     {
         GameObject proj = Instantiate(projectile, transform.position, transform.rotation);
         proj.GetComponent<Rigidbody2D>().velocity = (player.position - transform.position).normalized * fire_speed;
+    }
+    #endregion
+
+    #region Health_functions
+    public void TakeDamage(float damage) {
+        max_health -= damage;
+        if (max_health < 0) {
+            Destroy(this.gameObject);
+        }
     }
     #endregion
 }

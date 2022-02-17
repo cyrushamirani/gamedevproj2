@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     #region Attack_variables
     public GameObject waterBall;
     public float projectilespeed;
-    public int damage;
+    public float damage;
     private bool isAttacking;
     private float mouse_x;
     private float mouse_y;
