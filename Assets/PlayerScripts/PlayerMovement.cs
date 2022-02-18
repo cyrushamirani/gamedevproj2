@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
 
     #region Physics_components
     Rigidbody2D PlayerRB;
+    private SpriteRenderer renderSprite;
     #endregion 
 
 
@@ -39,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
     {
         PlayerRB = gameObject.GetComponent<Rigidbody2D>();
         currHealth = maxHealth;
+        renderSprite = GetComponent<SpriteRenderer>();
         
     }
 
@@ -61,6 +63,13 @@ public class PlayerMovement : MonoBehaviour
         Vector2 movement = new Vector2(x_input * movespeed, 0);
         movement = movement * Time.deltaTime;
         PlayerRB.AddForce(movement);
+        if (x_input < 0)
+        {
+            renderSprite.flipX = true;
+        } else if (x_input > 0)
+        {
+            renderSprite.flipX = false;
+        }
         //Checks to see if the player velocity exceeds maxspeed
         if (PlayerRB.velocity.x > maxspeed)
         {
