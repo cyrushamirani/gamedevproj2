@@ -10,9 +10,8 @@ public class WaterBall : MonoBehaviour
         Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.tag == "Enemy")
         {
-            EnemyScript enemy;
-            enemy = collision.gameObject.GetComponent<EnemyScript>();
-            enemy.TakeDamage(GetComponentInParent<PlayerMovement>().damage);
+            EnemyScript enemy = collision.gameObject.GetComponent<EnemyScript>();
+            enemy.TakeDamage(this.GetComponentInParent<PlayerMovement>().damage);
             Destroy(this.gameObject);
         }
         else if (collision.gameObject.tag == "Fireball")

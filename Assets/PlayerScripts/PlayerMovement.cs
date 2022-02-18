@@ -134,7 +134,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // destroys player object and triggers end scene stuff
-    private void Die() {
+    public void Die() {
 
         // Destroy this object
         Destroy(this.gameObject);

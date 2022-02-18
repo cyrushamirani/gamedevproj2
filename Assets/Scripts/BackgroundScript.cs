@@ -6,7 +6,8 @@ public class BackgroundScript : MonoBehaviour
 {
     void OnTriggerExit2D(Collider2D coll) {
 		if (isPlayer(coll.gameObject)) {
-			// LOSE GAME
+			PlayerMovement player = coll.gameObject.GetComponent<PlayerMovement>();
+			player.Die();
 		}
     }
 
