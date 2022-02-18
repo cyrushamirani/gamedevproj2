@@ -29,10 +29,11 @@ public class GameManager : MonoBehaviour
      
     public void StartLevel()
     {
-        SceneManager.LoadScene("Layer");
+        SceneManager.LoadScene("Layout");
     }
     public void LoseGame()
     {
+        Debug.Log("lost");
         SceneManager.LoadScene("Lose Screen");
     }
     #endregion

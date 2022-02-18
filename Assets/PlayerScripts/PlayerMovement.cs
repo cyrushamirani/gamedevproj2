@@ -130,8 +130,9 @@ public class PlayerMovement : MonoBehaviour
         // Destroy this object
         Destroy(this.gameObject);
         // trigger anything to end the game, find GameManager and lose game
-        // GameObject gm = GameObject.FindWithTag("GameController");
-        // gm.GetComponent<GameManager>().LoseGame();
+        GameObject gm = GameObject.FindWithTag("GameController");
+        Debug.Log(gm);
+        gm.GetComponent<GameManager>().LoseGame();
     }
 
     #endregion
